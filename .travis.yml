@@ -1,3 +1,4 @@
+sudo: false
 language: php
 php:
   - "5.6"
@@ -21,7 +22,7 @@ before_script:
   # Update Behat Path
 
   # Start up the server
-  - php -S localhost:8000 &
+  - php -S localhost:8000 -t web/ &
   - sleep 3
 
 script:
