@@ -5,7 +5,7 @@
                 <td class="data-icon"><img src="{{ image_src }}book.png"></td>
                 <td class="data"><a
                             href="index.php?page=brewBlogList&filter={{ filter|url_encode }}&sort=brewDate&dir=DESC">View
-                        {{ member.realFirstName }}'s {{ pref.menuBrewBlogs }}</a></td>
+                        {{ member.realFirstName }}'s {{ app.preferences.menuBrewBlogs }}</a></td>
             </tr>
         {% endif %}
         {% if recipe_count > 0 %}
@@ -13,7 +13,7 @@
             <td class="data-icon"><img src="{{ image_src }}script.png"></td>
             <td class="data"><a
                         href="index.php?page=recipeList&filter={{ filter|url_encode }}">View
-                    {{ member.realFirstName }}'s {{ pref.menuRecipes }}</a></td>
+                    {{ member.realFirstName }}'s {{ app.preferences.menuRecipes }}</a></td>
         </tr>
         {% endif %}
     </table>

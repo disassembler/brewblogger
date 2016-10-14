@@ -18,6 +18,7 @@ use BrewBlogger\User\UserControllerProvider;
 use BrewBlogger\User\UserProvider;
 use BrewBlogger\User\UserServiceProvider;
 use BrewBlogger\User\UserRepository;
+use BrewBlogger\Preferences\PreferenceRepository;
 use Silex\Application as SilexApplication;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
@@ -73,8 +74,10 @@ class Application extends SilexApplication {
   protected function registerBeforeListeners(Application $app) {
   }
   protected function registerViewListeners(Application $app) {
+    // TODO: fix autoescape after killing LegacyController
     $app->register(new TwigServiceProvider(), array(
       'twig.path' => __DIR__.'/../views',
+      'twig.options' => array('autoescape' => false),
     ));
   }
   protected function registerErrorListeners(Application $app) {
@@ -89,6 +92,10 @@ class Application extends SilexApplication {
     $app['user.repository'] = $app->share(function($app) {
       return new UserRepository($app['db']);
     });
+    $app['preference.repository'] = $app->share(function($app) {
+      return new PreferenceRepository($app['db']);
+    });
+    $app['preferences'] = $app['preference.repository']->findPreferences();
 
   }
   protected function registerProviders(Application $app) {

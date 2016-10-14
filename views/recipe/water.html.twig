@@ -1,4 +1,4 @@
-{% if (pref.waterDisplayMethod == "1") and (log.brewWaterProfile is not empty) %}
+{% if (app.preferences.waterDisplayMethod == "1") and (log.brewWaterProfile is not empty) %}
     <div class="headerContent">Water Profile</div>
     <div class="data-container">
         <h3><em>{{ water.waterName }}</em></h3>
@@ -54,7 +54,7 @@
         </table>
     </div>
 {% endif %}
-{% if (pref.waterDisplayMethod == "2") and (log.brewWaterName is not empty) %}
+{% if (app.preferences.waterDisplayMethod == "2") and (log.brewWaterName is not empty) %}
     <div class="headerContent">Water Profile</div>
     <div class="data-container">
         <table class="dataTable">
@@ -97,7 +97,7 @@
                         {% if log.brewWaterAmount is not empty %}
                             <tr>
                                 <td class="dataLabelLeft">Amount:</td>
-                                <td class="data">{{ log.brewWaterAmount }}&nbsp;{{ pref.measFluid2 }}</td>
+                                <td class="data">{{ log.brewWaterAmount }}&nbsp;{{ app.preferences.measFluid2 }}</td>
                             </tr>
                         {% endif %}
                         {% if log.brewWaterChloride is not empty %}

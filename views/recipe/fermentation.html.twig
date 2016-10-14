@@ -5,32 +5,32 @@
             <table>
                 <tr>
                     <td class="dataLabelLeft">Primary:</td>
-                    <td class="data">{{ log.brewPrimary }} days @ {{ log.brewPrimaryTemp }}&deg {{ pref.measTemp }}</td>
+                    <td class="data">{{ log.brewPrimary }} days @ {{ log.brewPrimaryTemp }}&deg {{ app.preferences.measTemp }}</td>
                 </tr>
                 {% if log.brewSecondary is not empty %}
                     <tr>
                         <td class="dataLabelLeft">Secondary:</td>
                         <td class="data">{{ log.brewSecondary }} days @ {{ log.brewSecondaryTemp }}
-                            &deg {{ pref.measTemp }}</td>
+                            &deg {{ app.preferences.measTemp }}</td>
                     </tr>
                 {% endif %}
                 {% if log.brewTertiary is not empty %}
                     <tr>
                         <td class="dataLabelLeft">Tertiary:</td>
                         <td class="data">{{ log.brewTertiary }} days @ {{ log.brewSecondary }}
-                            &deg {{ pref.measTemp }}</td>
+                            &deg {{ app.preferences.measTemp }}</td>
                     </tr>
                 {% endif %}
                 {% if log.brewLager is not empty %}
                     <tr>
                         <td class="dataLabelLeft">Lager:</td>
-                        <td class="data">{{ log.brewLager }} days @ {{ log.brewLagerTemp }}&deg {{ pref.measTemp }}</td>
+                        <td class="data">{{ log.brewLager }} days @ {{ log.brewLagerTemp }}&deg {{ app.preferences.measTemp }}</td>
                     </tr>
                 {% endif %}
                 {% if log.brewAge is not empty %}
                     <tr>
                         <td class="dataLabelLeft">Age:</td>
-                        <td class="data">{{ log.brewAge }} days @ {{ log.brewAgeTemp }}&deg {{ pref.measTemp }}</td>
+                        <td class="data">{{ log.brewAge }} days @ {{ log.brewAgeTemp }}&deg {{ app.preferences.measTemp }}</td>
                     </tr>
                 {% endif %}
             </table>

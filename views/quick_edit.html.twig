@@ -16,7 +16,7 @@
                 <td class="data-icon_list"><a href="admin/index.php?action=calculate&source={{ db_table }}&filter={{ filter }}&results=false&id={{ log.id }}"><img src="{{ image_src }}calculator.png" alt="Recalculate {{ log.brewName }}" title="Recalculate {{ log.brewName }}" border="0" align="absmiddle"></a></td>
                 <td class="data-icon_list"><a href="admin/index.php?action=add&dbTable=awards&assoc={{ db_table }}&filter={{ filter }}&id={{ log.id }}"><img src="{{ image_src }}medal_gold_3.png" alt="Add Awards for {{ log.brewName }}" title="Add Awards for {{ log.brewName }}" border="0" align="absmiddle"></a></td>
                 {% if page in ['brewBlogDetail', 'brewBlogCurrent'] %}
-                <td class="data-icon_list"><a href="entry.php?style={{ log.brewStyle }}&filter={% if pref.mode == "2" %}{{ filter }}{% else %}{{ login_username }}{% endif %}&id={{ log.id }}&KeepThis=true&TB_iframe=true&height=450&width=700" class="thickbox"><img src="{{ image_src }}award_star_add.png" alt="Add Awards for {{ log.brewName }}" title="Print a contest entry sheet for {{ log.brewName }}" border="0" align="absmiddle"></a></td>
+                <td class="data-icon_list"><a href="entry.php?style={{ log.brewStyle }}&filter={% if app.preferences.mode == "2" %}{{ filter }}{% else %}{{ login_username }}{% endif %}&id={{ log.id }}&KeepThis=true&TB_iframe=true&height=450&width=700" class="thickbox"><img src="{{ image_src }}award_star_add.png" alt="Add Awards for {{ log.brewName }}" title="Print a contest entry sheet for {{ log.brewName }}" border="0" align="absmiddle"></a></td>
                 {% endif %}
                 <td class="data">&nbsp;</td>
             </tr>

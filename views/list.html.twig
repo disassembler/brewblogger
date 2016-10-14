@@ -9,7 +9,7 @@
             <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}picture.png"
                                                              align="absmiddle"></span><span
                                                              class="data">
-                    {%- if pref.mode == "1" %}{{ name.brewerFirstName }}'s Photo{% elseif pref.mode == "2" %}Club Logo{% endif %}</span>
+                    {%- if app.preferences.mode == "1" %}{{ name.brewerFirstName }}'s Photo{% elseif app.preferences.mode == "2" %}Club Logo{% endif %}</span>
             </div>
             <div id="sidebarInnerWrapper">
                 <div align="center">
@@ -28,9 +28,9 @@
         <div id="sidebarWrapper">
             <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}link.png" align="absmiddle"></span><span
                         class="data">
-                    {% if (pref.mode == "1") and (name.brewerFirstName is not empty) %}
+                    {% if (app.preferences.mode == "1") and (name.brewerFirstName is not empty) %}
                         {{ name.brewerFirstName }}'s
-                    {% elseif pref.mode == "2" %}
+                    {% elseif app.preferences.mode == "2" %}
                         Club
                     {% endif %}
                     Links</span>
@@ -53,10 +53,10 @@
         </div>
     {% endif %}
 {% else %}
-    {% if pref.mode == "1" %}
+    {% if app.preferences.mode == "1" %}
         <div id="sidebarWrapper">
             <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}book.png" align="absmiddle"></span><span
-                        class="data">More {{ (page == "recipeDetail")?pref.menuRecipes:pref.menuBrewBlogs }}</span>
+                        class="data">More {{ (page == "recipeDetail")?app.preferences.menuRecipes:app.preferences.menuBrewBlogs }}</span>
             </div>
             <div id="sidebarInnerWrapper">
                 <table width="100%">
@@ -81,19 +81,19 @@
                 </table>
             </div>
         </div>
-    {% elseif pref.mode == "2" %}
+    {% elseif app.preferences.mode == "2" %}
         <div id="sidebarWrapper">
         <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}book.png"
                                                              align="absmiddle"></span><span
-                    class="data">{% if log.brewBrewerID is not empty %}{{ user2.realFirstName }}{% else %}Other{% endif %}{{ (page == "recipeDetail")?pref.menurecipes:pref.menuBrewBlogs }}</span>
+                    class="data">{% if log.brewBrewerID is not empty %}{{ user2.realFirstName }}{% else %}Other{% endif %}{{ (page == "recipeDetail")?app.preferences.menurecipes:app.preferences.menuBrewBlogs }}</span>
         </div>
         <div id="sidebarInnerWrapper" >
         <table width="100%">
         <tr>
             <td class="listLeftAlign"
                 {% if page == "brewBlogDetail" %}colspan="2"{% endif %}>{% if page == "recipeDetail" %}<a
-                        href="?page=brewBlogList&sort=brewDate&dir=DESC">All Club {{ pref.menuBrewBlogs }}</a>{% else %}
-                    <a href="?page=recipeList">All Club {{ pref.menuRecipes }}</a>{% endif %}</td>
+                        href="?page=brewBlogList&sort=brewDate&dir=DESC">All Club {{ app.preferences.menuBrewBlogs }}</a>{% else %}
+                    <a href="?page=recipeList">All Club {{ app.preferences.menuRecipes }}</a>{% endif %}</td>
         </tr>
         {% if (log.brewBrewerID is not empty) %}
             {% for item in list %}
