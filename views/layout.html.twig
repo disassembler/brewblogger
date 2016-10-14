@@ -2,30 +2,30 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <meta name="description"
-          content="{{ name.brewerLogName }} is the homebrewing log and recipe collection of {{ name.brewerFirstName }} {{ name.brewerLastName }}. Powered by BrewBlogger {{ version }}.">
-    <meta name="robots" content="index,follow,noarchive">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta app.site_info."description"
+          content="{{ app.site_info.brewerLogName }} is the homebrewing log and recipe collection of {{ app.site_info.brewerFirstName }} {{ app.site_info.brewerLastName }}. Powered by BrewBlogger {{ app.site_info.version }}.">
+    <meta app.site_info."robots" content="index,follow,noarchive">
+    <link rel="shortcut icon" href="{{ app.request.basepath }}/favicon.ico" type="image/x-icon">
     <title>
         {% block title %}
             {% if app.preferences.mode == "1" %}
-                {{ name.brewerFirstName }}'s BrewBlog &gt; {{ page_title }} {{ page_title_extension }}
+                {{ app.site_info.brewerFirstName }}'s BrewBlog &gt; {{ page_title }} {{ page_title_extension }}
             {% elseif app.preferences.mode == "2" %}
-                {{ name.brewerFirstName }} {{ name.brewerLogName }} &gt; {{ page_title }} {{ page_title_extension }}
+                {{ app.site_info.brewerFirstName }} {{ app.site_info.brewerLogName }} &gt; {{ page_title }} {{ page_title_extension }}
             {% endif %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="css/universal_elements.css" type="text/css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/universal_elements.css" type="text/css">
 
     {% if checkmobile %}
-        <link rel="stylesheet" href="css/mobile.css" type="text/css">
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/mobile.css" type="text/css">
     {% else %}
-        <script type="text/javascript" src="js_includes/menu.js"></script>
-        <script type="text/javascript" src="js_includes/jquery.js"></script>
-        <script type="text/javascript" src="js_includes/thickbox.js"></script>
-        <script type="text/javascript" src="js_includes/jump_menu.js"></script>
-        <link rel="stylesheet" href="css/thickbox.css" type="text/css" media="screen">
-        <link rel="stylesheet" href="css/{{ app.preferences.theme }}" type="text/css">
+        <script type="text/javascript" src="{{ app.request.basepath }}/js_includes/menu.js"></script>
+        <script type="text/javascript" src="{{ app.request.basepath }}/js_includes/jquery.js"></script>
+        <script type="text/javascript" src="{{ app.request.basepath }}/js_includes/thickbox.js"></script>
+        <script type="text/javascript" src="{{ app.request.basepath }}/js_includes/jump_menu.js"></script>
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/thickbox.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/{{ app.preferences.theme }}" type="text/css">
     {% endif %}
 
     {% block head %}{% endblock %}
@@ -35,8 +35,8 @@
 <div id="main-container">
     <!-- Begin Header -->
     <div id="header">
-        <div class="titleText">{{ name.brewerFirstName }}{% if app.preferences.mode == 1 and name.brewerFirstName %}'s{% endif %}&nbsp;{{ name.brewerLogName }}</div>
-        <div class="quoteText">{{ name.brewerTagline }}</div>
+        <div class="titleText">{{ app.site_info.brewerFirstName }}{% if app.preferences.mode == 1 and app.site_info.brewerFirstName %}'s{% endif %}&nbsp;{{ app.site_info.brewerLogName }}</div>
+        <div class="quoteText">{{ app.site_info.brewerTagline }}</div>
     </div>
     <div id="nav">{% include "includes/navigation.html.twig" %}</div>
     <!-- End Header -->
@@ -46,7 +46,7 @@
             <div id="{% block breadcrumb_id "breadcrumbWide" %}">{{ breadcrumb }}</div>
             {% if app.preferences.mode == 2 and app.preferences.home == page and app.preferences.allowNews == "y" and totalRows_newsGen > 0 %}{#{{render(controller('news.controller:index'))}}#}{% endif %}
             <div id="{% block subtitle_id "subtitleWide" %}">
-                <div id="icon"><img src="{{ image_src }}{{ icon }}.png" align="bottom"></div>
+                <div id="icon"><img src="{{ app.request.basepath }}{{ image_src }}{{ icon }}.png" align="bottom"></div>
                 {% block page_title page_title %}
             </div>
             <!-- end subtitle or subtitleWide -->

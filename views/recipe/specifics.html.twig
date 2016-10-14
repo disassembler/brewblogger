@@ -37,7 +37,7 @@
             {% if app.preferences.mode == "2" %}
                 <div class="data-item-container">
                     <div class="data-label">{% if (page =="recipeDetail") or (page =="recipePrint") %}Contributor:{% else %}Brewer:{% endif %}</div>
-                    <div class="data-regular">{% if log.brewBrewerID is empty %}{{ name.brewerFirstName }}&nbsp;{{ name.brewerLastName }}{% else %}{{ user2.realFirstName }}&nbsp;{{ user2.realLastName }}{% endif %}</div>
+                    <div class="data-regular">{% if log.brewBrewerID is empty %}{{ app.site_info.brewerFirstName }}&nbsp;{{ app.site_info.brewerLastName }}{% else %}{{ user2.realFirstName }}&nbsp;{{ user2.realLastName }}{% endif %}</div>
                 </div>
             {% endif %}
             {% if page not in ['recipeDetail', 'recipePrint'] %}

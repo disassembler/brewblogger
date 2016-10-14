@@ -5,50 +5,50 @@
     <table class="dataTable">
         <tr>
             <td valign="top" class="dataLabelLeft">{% if app.preferences.mode == 2 %}Club {% endif %}Name:</td>
-            <td valign="top" class="data">{{ name.brewerPrefix }} {{ name.brewerFirstName }} {{ name.brewerMiddleName }} {{ name.brewerLastName }} {{ name.brewerSuffix }}</td>
+            <td valign="top" class="data">{{ app.site_info.brewerPrefix }} {{ app.site_info.brewerFirstName }} {{ app.site_info.brewerMiddleName }} {{ app.site_info.brewerLastName }} {{ app.site_info.brewerSuffix }}</td>
         </tr>
-        {% if app.preferences.mode == 1 and (name.brewerAge is not empty) %}
+        {% if app.preferences.mode == 1 and (app.site_info.brewerAge is not empty) %}
         <tr>
             <td valign="top" class="dataLabelLeft">Age:</td>
-            <td valign="top" class="data">{{ name.brewerAge }}</td>
+            <td valign="top" class="data">{{ app.site_info.brewerAge }}</td>
         </tr>
         {% endif %}
-        {% if name.brewerCity is not empty %}
+        {% if app.site_info.brewerCity is not empty %}
         <tr>
             <td valign="top" class="dataLabelLeft">Hometown:</td>
-            <td valign="top" class="data">{{ name.brewerCity }}{% if (name.brewerCity is not empty) and (name.brewerState is not empty) %}, {% endif %}{{ name.brewerState }} {{ name.brewerCountry }}</td>
+            <td valign="top" class="data">{{ app.site_info.brewerCity }}{% if (app.site_info.brewerCity is not empty) and (app.site_info.brewerState is not empty) %}, {% endif %}{{ app.site_info.brewerState }} {{ app.site_info.brewerCountry }}</td>
         </tr>
         {% endif %}
         {% if app.preferences.mode == 1 %}
-            {% if name.brewerClubs is not empty %}
+            {% if app.site_info.brewerClubs is not empty %}
             <tr>
                 <td valign="top" class="dataLabelLeft">Clubs:</td>
-                <td valign="top" class="data">{{ name.brewerClubs }}</td>
+                <td valign="top" class="data">{{ app.site_info.brewerClubs }}</td>
             </tr>
             {% endif %}
-            {% if name.brewerFavStyles is not empty %}
+            {% if app.site_info.brewerFavStyles is not empty %}
             <tr>
                 <td valign="top" class="dataLabelLeft">Fav Styles:</td>
-                <td valign="top" class="data">{{ name.brewerFavStyles }}</td>
+                <td valign="top" class="data">{{ app.site_info.brewerFavStyles }}</td>
             </tr>
             {% endif %}
-            {% if name.brewerPrefMethod is not empty %}
+            {% if app.site_info.brewerPrefMethod is not empty %}
             <tr>
                 <td valign="top" class="dataLabelLeft">Method:</td>
-                <td valign="top" class="data">{{ name.brewerPrefMethod }}</td>
+                <td valign="top" class="data">{{ app.site_info.brewerPrefMethod }}</td>
             </tr>
             {% endif %}
         {% endif %}
-        {% if name.brewerAbout is not empty %}
+        {% if app.site_info.brewerAbout is not empty %}
         <tr>
             <td valign="top" class="dataLabelLeft">Info:</td>
-            <td valign="top" class="data">{{ name.brewerAbout }}</td>
+            <td valign="top" class="data">{{ app.site_info.brewerAbout }}</td>
         </tr>
         {% endif %}
-        {% if name.brewerOther is not empty %}
+        {% if app.site_info.brewerOther is not empty %}
         <tr>
             <td valign="top" class="dataLabelLeft">Other Info:</td>
-            <td valign="top" class="data">{{ name.brewerOther }}</td>
+            <td valign="top" class="data">{{ app.site_info.brewerOther }}</td>
         </tr>
         {% endif %}
     </table>

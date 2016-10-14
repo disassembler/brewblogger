@@ -1,13 +1,14 @@
 <?php
 
-namespace BrewBlogger\Recipe\Entity\Recipe;
+namespace BrewBlogger\Recipe\Entity;
 
+use JsonSerializable;
 
 /**
  * Recipe
  *
  */
-class Recipe
+class Recipe implements JsonSerializable
 {
     /**
      * @var string
@@ -6276,5 +6277,23 @@ class Recipe
     public function getId()
     {
         return $this->id;
+    }
+    public function jsonSerialize() {
+      return [
+        'name' => $this->brewname,
+        'style' => $this->brewstyle,
+        'notes' => $this->brewnotes,
+        'source' => $this->brewsource,
+
+      ];
+    }
+    public function getColorDisplay() {
+      return 'coming soon';
+    }
+    public function calcAbv() {
+      return 'coming soon';
+    }
+    public function awardCount() {
+      return 'coming soon';
     }
 }

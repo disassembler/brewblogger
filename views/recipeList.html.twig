@@ -20,8 +20,8 @@
 </div>
     {% if featured is not empty %}
         {% if (app.preferences.mode == "1") or ((app.preferences.mode == "2") and (filter == "all")) %}
-            {{ featured }}
-            <div class="headerContentAdmin">All {{ db_name }}</div>
+            {#{{ featured }}#}
+            <div class="headerContentAdmin">All Recipes</div>
         {% endif %}
     {% endif %}
     <table class="dataTable">
@@ -61,12 +61,12 @@
     </table>
     <table class="dataTable">
         <tr>
-            {% if login_username is not empty %}
+            {% if app.user is not empty %}
                 <td class="dataList" width="1%"><img src="{{ image_src }}pencil.png" border="0" align="absmiddle">
                 </td>{% endif %}
             {% if not checkmobile %}
                 <td class="dataHeadingList" width="1%">XML</td>{% endif %}
-            <td class="dataHeadingList" width="25%">{{ db_name }}{% if not checkmobile %}&nbsp;<a
+            <td class="dataHeadingList" width="25%">Recipes{% if not checkmobile %}&nbsp;<a
                         href="?page={{ page|url_encode }}&sort=brewName&dir=ASC&filter={{ filter|url_encode }}&view={{ view|url_encode }}"><img
                             src="{{ image_src }}sort_up.gif" border="0" alt="Sort Ascending"></a><a
                         href="?page={{ page|url_encode }}&sort=brewName&dir=DESC&filter={{ filter|url_encode }}&view={{ view|url_encode }}">
@@ -109,9 +109,9 @@
         </tr>
         {% for recipe in recipes %}
             {% if recipe.brewArchive != "Y" %}
-                <tr style="background-color: {{ cycle([color1, color2], loop.index) }}">
-                    {% if login_username is not empty %}
-                        {% if (user.userLevel == "1") or (recipe.brewBrewerID == login_username) %}
+                <tr style="background-color: {{ cycle([app.preferences.theme_color1, app.preferences.theme_color2], loop.index) }}">
+                    {% if app.user is not empty %}
+                        {% if (is_granted('ROLE_ADMIN')) or (recipe.brewBrewerID == app.user) %}
                             <td class="dataList"><a
                                         href="admin/index.php?action=edit&dbTable=recipes&id={{ recipe.id|url_encode }}"><img
                                             src="{{ image_src }}pencil.png" alt="Edit {{ recipe.brewName }}"
@@ -123,20 +123,19 @@
                     {% if not checkmobile %}
                         <td class="dataList"><a href="#"
                                                 onclick="window.open('/export/beerxml?id={{ recipe.id }}&source={{ source }}&brewStyle={{ recipe.brewStyle }}','','height=5,width=5, scrollbars=no, toolbar=no, resizable==no, menubar=no'); return false;"><img
-                                        src="{{ image_src }}page_white_code.png" title="Download BeerXML"
+                                        src="{{ app.request.basepath }}{{ image_src }}page_white_code.png" title="Download BeerXML"
                                         align="absmiddle" border="0"/></a></td>
                     {% endif %}
                     <td class="dataList"><a
                                 href="index.php?page={{ destination }}&filter={{ recipe.brewBrewerID|url_encode }}&id={{ recipe.id|url_encode }}">{{ recipe.brewName }}</a>
                     </td>
                     <td class="dataList">
-                        <div id="moreInfo">{% if (recipe.brewStyle is not empty) and (not checkmobile) %}<a href="
-                    {%- if style == "all" %}?page={{ page|url_encode }}&filter={{ filter|url_encode }}&style={{ recipe.brewStyle|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}view={{ view|url_encode }}&pg=1{% else %}#{% endif -%}
-                    "
-                                                                                                        title="Filter by style: {{ recipe.brewStyle }}">{% endif %}{{ recipe.brewStyle }}{% if (recipe.style is not empty) and (not checkmobile) %}
+                        <div id="moreInfo">{% if (recipe.brewStyle is not empty) and (not checkmobile) %}
+                          <a href="{{ path('recipes.list_style', {'style': recipe.brewStyle}) }}"
+                                                                                                        title="Filter by style: {{ recipe.brewStyle }}">{% endif %}{{ recipe.brewStyle }}{% if (recipe.brewStyle is not empty) and (not checkmobile) %}
                                 <span>
                             <div id="wideWrapper">
-                                {{ recipe.style_include }}
+                                {{ recipe.brewStyle }}
                             </div>
                         </span>
                             </a>
@@ -145,7 +144,7 @@
                     </td>
                     <td class="dataList">{{ recipe.brewMethod }}</td>
                     {% if not checkmobile %}
-                        <td class="dataList">{{ recipe.color_display }}</td>
+                        <td class="dataList">{{ recipe.colorDisplay }}</td>
                     {% endif %}
                     <td class="dataList">{{ recipe.brewBitterness|number_format(1) }}</td>
                     <td class="dataList">{{ recipe.calcABV|number_format(1) }}</td>
@@ -154,7 +153,7 @@
                                     href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ recipe.user.user_name|url_encode }}&view=limited">{{ recipe.user.realFirstName }} {{ recipe.user.realLastName }}</a>
                         </td>
                     {% endif %}
-                    <td class="dataList center">{{ recipe.award_count }}</td>
+                    <td class="dataList center">{{ recipe.awardCount }}</td>
                 </tr>
             {% endif %}
         {% endfor %}
