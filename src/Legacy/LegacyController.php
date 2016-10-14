@@ -22,7 +22,9 @@ class LegacyController {
    */
   protected $app;
   public function __construct(Application $app) {
+    global $twig;
     $this->app = $app;
+    $twig = $app['twig'];
   }
   public function setSessionUser() {
     if ($this->app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {

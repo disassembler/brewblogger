@@ -74,8 +74,10 @@ class Application extends SilexApplication {
   protected function registerBeforeListeners(Application $app) {
   }
   protected function registerViewListeners(Application $app) {
+    // TODO: fix autoescape after killing LegacyController
     $app->register(new TwigServiceProvider(), array(
       'twig.path' => __DIR__.'/../views',
+      'twig.options' => array('autoescape' => false),
     ));
   }
   protected function registerErrorListeners(Application $app) {
