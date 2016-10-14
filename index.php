@@ -1,4 +1,5 @@
 <?php
+global $twig;
 const HTTP_RESPONSE_NOT_FOUND = 404;
 require_once('vendor/autoload.php');
 
@@ -39,11 +40,6 @@ require_once(ADMIN_INCLUDES . 'constants.inc.php');
 
 $imageSrc = "images/";
 
-$loader = new Twig_Loader_Filesystem(__DIR__ . '/views/');
-$twig   = new Twig_Environment($loader, array(
-    'debug'      => true,
-    'autoescape' => false,
-));
 $twig->addExtension(new Twig_Extension_Debug());
 
 $twig->addGlobal('breadcrumb', $breadcrumb);
@@ -57,7 +53,6 @@ $twig->addGlobal('name', isset($row_name) ? $row_name : null);
 $twig->addGlobal('page', $page);
 $twig->addGlobal('page_title', $page_title);
 $twig->addGlobal('page_title_extension', $page_title_extension);
-$twig->addGlobal('pref', $row_pref);
 $twig->addGlobal('section', $section);
 $twig->addGlobal('totalRows_awardGen', $totalRows_awardGen);
 $twig->addGlobal('user', isset($row_user) ? $row_user : array());
@@ -76,7 +71,6 @@ $actionMap = array(
     'calendar'        => 'calendar.inc.php',
     'memberList'      => 'memberList.inc.php',
     'profile'         => 'profile.inc.php',
-    'news'            => 'news.inc.php',
     'recipeDetail'    => 'recipeDetail.inc.php',
     'about'           => 'about.inc.php',
 );

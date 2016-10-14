@@ -34,7 +34,7 @@
                     {% endif %}
                 </div>
             </div>
-            {% if pref.mode == "2" %}
+            {% if app.preferences.mode == "2" %}
                 <div class="data-item-container">
                     <div class="data-label">{% if (page =="recipeDetail") or (page =="recipePrint") %}Contributor:{% else %}Brewer:{% endif %}</div>
                     <div class="data-regular">{% if log.brewBrewerID is empty %}{{ name.brewerFirstName }}&nbsp;{{ name.brewerLastName }}{% else %}{{ user2.realFirstName }}&nbsp;{{ user2.realLastName }}{% endif %}</div>
@@ -55,13 +55,13 @@
             {% if log.brewYield is not empty %}
                 <div class="data-item-container">
                     <div class="data-label">Yield:</div>
-                    <div class="data-regular">{% if action in ['default', 'print', 'reset'] %}{{ log.brewYield }}{% endif %}{% if action == "scale" %}{{ amt }}{% endif %}&nbsp;{{ pref.measFluid2 }}</div>
+                    <div class="data-regular">{% if action in ['default', 'print', 'reset'] %}{{ log.brewYield }}{% endif %}{% if action == "scale" %}{{ amt }}{% endif %}&nbsp;{{ app.preferences.measFluid2 }}</div>
                 </div>
             {% endif %}
 
             <div class="data-item-container">
                 <div class="data-label">Bitterness:</div>
-                <div class="data-regular">{{ log.brewBitterness_formatted }}&nbsp;{{ pref.measBitter }}
+                <div class="data-regular">{{ log.brewBitterness_formatted }}&nbsp;{{ app.preferences.measBitter }}
                     {% if log.brewIBUFormula is not empty %}({{ log.brewIBUFormula }}){% endif %}
                 </div>
             </div>
@@ -98,7 +98,7 @@
                                         title="SRM Color Reference" class="thickbox"><img
                                             src="{{ image_src }}information.png" align="absmiddle" border="0"
                                             alt="Reference"></a></div>
-                            Color ({{ pref.measColor }}):
+                            Color ({{ app.preferences.measColor }}):
                         {% endif %}
                     </div>
                     <div class="data-regular">

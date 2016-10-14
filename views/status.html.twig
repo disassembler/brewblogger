@@ -1,5 +1,5 @@
 <div id="sidebarWrapper">
-    <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}clock.png" align="absmiddle"></span><span class="data">{% if pref.mode == "2" %}{{ user2.realFirstName }}'s{% endif %}Brew Status</span></div>
+    <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}clock.png" align="absmiddle"></span><span class="data">{% if app.preferences.mode == "2" %}{{ user2.realFirstName }}'s{% endif %}Brew Status</span></div>
     <div id="sidebarInnerWrapper">
         <table width="100%">
             {% for status in statuses %}

@@ -1,6 +1,6 @@
 {% if upcoming is not empty %}
 <div id="sidebarWrapper">
-    <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}time.png" align="absmiddle"></span><span class="data">{% if pref.mode == "2" %}{{ user2.realFirstName }}'s {% endif %}Upcoming Brews</span></div>
+    <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}time.png" align="absmiddle"></span><span class="data">{% if app.preferences.mode == "2" %}{{ user2.realFirstName }}'s {% endif %}Upcoming Brews</span></div>
     <div id="sidebarInnerWrapper" >
         <table>
             {% for beer in upcoming %}

@@ -21,12 +21,12 @@
                         <div id="breadcrumb">Filter: {{ log.brewStyle }} | <a
                                     href="?page={{ page|url_encode }}&filter={{ filter|url_encode }}&style=all&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&view={{ view|url_encode }}&pg={{ pg|url_encode }}">See
                                 all styles
-                                {%- if pref.mode == "2" and filter != "all" %} brewed by {{ user2.realFirstName }}{% endif %}</a>
+                                {%- if app.preferences.mode == "2" and filter != "all" %} brewed by {{ user2.realFirstName }}{% endif %}</a>
                         </div>
                     </td>
                 {% endif %}
                 <td>
-                    <div id="paginate">{{ total }} {{ pref.menuBrewBlogs }} Total
+                    <div id="paginate">{{ total }} {{ app.preferences.menuBrewBlogs }} Total
                         {%- if total > display %}&nbsp;&nbsp;&nbsp;&#8226{% endif %}
                         {%- if view == "all" %}&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;{% endif %}
                         {%- if total > display %}
@@ -34,12 +34,12 @@
                             {% if view == "limited" %}&nbsp;&nbsp;&nbsp;&#8226&nbsp;&nbsp;&nbsp;<a
                                     href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=all">
                                 Entire List of
-                                {%- if (pref.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s{% endif %}{{ pref.menuBrewBlogs }}</a>{% endif %}
+                                {%- if (app.preferences.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s{% endif %}{{ app.preferences.menuBrewBlogs }}</a>{% endif %}
                         {% endif %}
                         {% if (view == "all") and (total < display) %}
                             <a href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=limited">Limited
                                 List
-                                of {% if (pref.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s {% endif %} {{ pref.menuBrewBlogs }}</a>
+                                of {% if (app.preferences.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s {% endif %} {{ app.preferences.menuBrewBlogs }}</a>
                         {% endif %}</div>
                 </td>
             </tr>
@@ -72,7 +72,7 @@
                             href="?page={{ page|url_encode }}&sort=brewMethod&dir=DESC&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view={{ view | url_encode }}">
                         <img src="{{ image_src }}sort_down.gif" border="0" alt="Sort Descending"></a>{% endif %}</td>
                 <td class="dataHeadingList"
-                    width="10%">{% if pref.measColor == "EBC" %}EBC{% else %}SRM{% endif %}{% if not checkmobile %}&nbsp;
+                    width="10%">{% if app.preferences.measColor == "EBC" %}EBC{% else %}SRM{% endif %}{% if not checkmobile %}&nbsp;
                         <a href="?page={{ page|url_encode }}&sort=brewLovibond&dir=ASC&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view={{ view | url_encode }}"><img
                                     src="{{ image_src }}sort_up.gif" border="0" alt="Sort Ascending"></a><a
                             href="?page={{ page|url_encode }}&sort=brewLovibond&dir=DESC&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view={{ view | url_encode }}">
@@ -87,7 +87,7 @@
                             src="{{ image_src }}sort_up.gif" border="0" alt="Sort Ascending"></a><a
                             href="?page={{ page|url_encode }}&sort=brewOG&dir=DESC&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view={{ view | url_encode }}">
                         <img src="{{ image_src }}sort_down.gif" border="0" alt="Sort Descending"></a>{% endif %}</td>
-                {% if (pref.mode == "2") and (filter == "all") %}
+                {% if (app.preferences.mode == "2") and (filter == "all") %}
                     <td class="dataHeadingList">Contributor{% if not checkmobile %}&nbsp;<a
                         href="?page={{ page|url_encode }}&sort=brewBrewerID&dir=ASC&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view={{ view | url_encode }}"><img
                             src="{{ image_src }}sort_up.gif" border="0" alt="Sort Ascending"></a><a
@@ -142,7 +142,7 @@
                         {% endif %}
                         <td class="dataList">{{ log.brewBitterness }}</td>
                         <td class="dataList">{{ log.calcABV }}</td>
-                        {% if (pref.mode == "2") and (filter == "all") %}
+                        {% if (app.preferences.mode == "2") and (filter == "all") %}
                             <td class="dataList">
                                 <a href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ log.user.user_name }}&view=limited">{{ log.user.realFirstName }} {{ log.user.realLastName }}</a>
                             </td>
@@ -157,7 +157,7 @@
                 <tr>
                     <td colspan="9">
                         <div id="paginate">
-                            {{ total }} {{ pref.menuBrewBlogs }} Total
+                            {{ total }} {{ app.preferences.menuBrewBlogs }} Total
                             {% if log_rows > display %}&nbsp;&nbsp;&nbsp;&#8226;{% endif %}
                             {% if view == "all" %}&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;{% endif %}
                             {% if log_rows > display %}&nbsp;&nbsp;&nbsp;{{ paginate }}
@@ -165,18 +165,18 @@
                                     &nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;<a
                                         href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=all">Entire
                                     List of
-                                    {% if pref.mode == "2" and filter != "all" %}
+                                    {% if app.preferences.mode == "2" and filter != "all" %}
                                         {{ user2.realFirstName }}'s
                                     {% endif %}
-                                    {{ pref.menuBrewBlogs }}</a>
+                                    {{ app.preferences.menuBrewBlogs }}</a>
                                 {% endif %}
                                 {% if view == "all" %}
                                     <a href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=limited">Limited
                                         List of
-                                        {% if pref.mode == "2" and filter != "all" %}
+                                        {% if app.preferences.mode == "2" and filter != "all" %}
                                             {{ user2.realFirstName }}'s
                                         {% endif %}
-                                        {{ pref.menuBrewBlogs }}</a>
+                                        {{ app.preferences.menuBrewBlogs }}</a>
                                 {% endif %}
                             {% endif %}
                         </div>
