@@ -1,17 +1,17 @@
-{% if (pref.mashDisplayMethod == "1") and (log.brewMashProfile is not empty) %}
+{% if (app.preferences.mashDisplayMethod == "1") and (log.brewMashProfile is not empty) %}
     <div class="headerContent">Mash Profile</div>
     <div class="data-container">
         <h3><em>{{ mash.mashProfileName }}</em></h3>
         <table class="dataTable">
             <tr>
                 <td class="dataLabelLeft">Grain Temperature:</td>
-                <td class="data" width="15%">{{ mash.mashGrainTemp }}&deg;{{ pref.measTemp }}</td>
+                <td class="data" width="15%">{{ mash.mashGrainTemp }}&deg;{{ app.preferences.measTemp }}</td>
                 <td class="dataLabel data" width="10%">Tun Temperature:</td>
-                <td class="data">{{ mash.mashTunTemp }}&deg;{{ pref.measTemp }}</td>
+                <td class="data">{{ mash.mashTunTemp }}&deg;{{ app.preferences.measTemp }}</td>
             </tr>
             <tr>
                 <td class="dataLabelLeft">Sparge Temperature:</td>
-                <td class="data">{{ mash.mashSpargeTemp }}&deg;{{ pref.measTemp }}</td>
+                <td class="data">{{ mash.mashSpargeTemp }}&deg;{{ app.preferences.measTemp }}</td>
                 <td class="dataLabel data">PH:</td>
                 <td class="data">{{ mash.mashPH }}</td>
             </tr>
@@ -43,7 +43,7 @@
                         <td class="data">{{ step.stepName }}</td>
                         <td class="data">{{ step.stepType }}</td>
                         <td class="data" nowrap>{{ step.stepTime }} min.</td>
-                        <td class="data" nowrap>{{ step.steTemp_adjusted }}&deg;{{ pref.measTemp }}</td>
+                        <td class="data" nowrap>{{ step.steTemp_adjusted }}&deg;{{ app.preferences.measTemp }}</td>
                         <td class="data">{{ step.stepDescription }}</td>
                     </tr>
                 {% endfor %}
@@ -51,7 +51,7 @@
         {% endif %}
     </div>
 {% endif %}
-{% if (pref.mashDisplayMethod == "2") or ((pref.mashDisplayMethod == "1") and (log.brewMashProfile == "")) %}
+{% if (app.preferences.mashDisplayMethod == "2") or ((app.preferences.mashDisplayMethod == "1") and (log.brewMashProfile == "")) %}
     {% if log.brewMashType is not empty %}
         <div class="headerContent">Mash</div>
         <div class="data-container">
@@ -73,7 +73,7 @@
                                 <tr>
                                     <td class="dataLabelLeft">Grain Amt.</td>
                                     <td class="data">{% if action == "default" %}{{ log.brewMashGrainWeight }}{% elseif action =="scale" %}{{ log.brewMashGrainWeight_scaled|number_format(2) }}{% endif %}
-                                        &nbsp;{{ pref.measWeight2 }}</td>
+                                        &nbsp;{{ app.preferences.measWeight2 }}</td>
                                 </tr>
                             {% endif %}
                             <tr>
@@ -91,13 +91,13 @@
                             {% if log.brewMashGrainTemp is not empty %}
                                 <tr>
                                     <td class="dataLabelLeft">Grain Temp.</td>
-                                    <td class="data">{{ log.brewMashGrainTemp }}&deg; {{ pref.measTemp }}</td>
+                                    <td class="data">{{ log.brewMashGrainTemp }}&deg; {{ app.preferences.measTemp }}</td>
                                 </tr>
                             {% endif %}
                             {% if log.brewMashTunTemp is not empty %}
                                 <tr>
                                     <td class="dataLabelLeft">Tun Temp.</td>
-                                    <td class="data">{{ log.brewMashTunTemp }}&deg; {{ pref.measTemp }}</td>
+                                    <td class="data">{{ log.brewMashTunTemp }}&deg; {{ app.preferences.measTemp }}</td>
                                 </tr>
                             {% endif %}
                             {% if log.brewMashSpargAmt is not empty %}
@@ -105,13 +105,13 @@
                                 <tr>
                                     <td class="dataLabelLeft">Sparge Amt.</td>
                                     <td class="data">{% if action == "default" %}{{ log.brewMashSpargAmt }}{% elseif action =="scale" %}{{ log.brewMashSpargAmt_scaled|number_format(2) }}{% endif %}
-                                        &nbsp;{{ pref.measFluid2 }}</td>
+                                        &nbsp;{{ app.preferences.measFluid2 }}</td>
                                 </tr>
                             {% endif %}
                             {% if log.brewMashSpargeTemp is not empty %}
                                 <tr>
                                     <td class="dataLabelLeft">Sparge Temp.</td>
-                                    <td class="data">{{ log.brewMashSpargeTemp }}&deg; {{ pref.measTemp }}</td>
+                                    <td class="data">{{ log.brewMashSpargeTemp }}&deg; {{ app.preferences.measTemp }}</td>
                                 </tr>
                             {% endif %}
                             {% if log.brewMashEquipAdjust is not empty %}
@@ -136,14 +136,14 @@
                                 <tr>
                                     <td class="dataLeft">{{ log.brewMashStep1Name }}</td>
                                     <td class="data">{{ log.brewMashStep1Desc }}</td>
-                                    <td class="data">{{ log.brewMashStep1Temp }}&deg; {{ pref.measTemp }}</td>
+                                    <td class="data">{{ log.brewMashStep1Temp }}&deg; {{ app.preferences.measTemp }}</td>
                                     <td class="data">{{ log.brewMashStep1Time }}&nbsp;min.</td>
                                 </tr>
                                 {% if log.brewMashStep2Name is not empty %}
                                     <tr>
                                         <td class="dataLeft">{{ log.brewMashStep2Name }}</td>
                                         <td class="data">{{ log.brewMashStep2Desc }}</td>
-                                        <td class="data">{{ log.brewMashStep2Temp }}&deg; {{ pref.measTemp }}</td>
+                                        <td class="data">{{ log.brewMashStep2Temp }}&deg; {{ app.preferences.measTemp }}</td>
                                         <td class="data">{{ log.brewMashStep2Time }}&nbsp;min.</td>
                                     </tr>
                                 {% endif %}
@@ -151,7 +151,7 @@
                                     <tr>
                                         <td class="dataLeft">{{ log.brewMashStep3Name }}</td>
                                         <td class="data">{{ log.brewMashStep3Desc }}</td>
-                                        <td class="data">{{ log.brewMashStep3Temp }}&deg; {{ pref.measTemp }}</td>
+                                        <td class="data">{{ log.brewMashStep3Temp }}&deg; {{ app.preferences.measTemp }}</td>
                                         <td class="data">{{ log.brewMashStep3Time }}&nbsp;min.</td>
                                     </tr>
                                 {% endif %}
@@ -159,7 +159,7 @@
                                     <tr>
                                         <td class="dataLeft">{{ log.brewMashStep4Name }}</td>
                                         <td class="data">{{ log.brewMashStep4Desc }}</td>
-                                        <td class="data">{{ log.brewMashStep4Temp }}&deg; {{ pref.measTemp }}</td>
+                                        <td class="data">{{ log.brewMashStep4Temp }}&deg; {{ app.preferences.measTemp }}</td>
                                         <td class="data">{{ log.brewMashStep4Time }}&nbsp;min.</td>
                                     </tr>
                                 {% endif %}
@@ -167,7 +167,7 @@
                                     <tr>
                                         <td class="dataLeft">{{ log.brewMashStep5Name }}</td>
                                         <td class="data">{{ log.brewMashStep5Desc }}</td>
-                                        <td class="data">{{ log.brewMashStep5Temp }}&deg; {{ pref.measTemp }}</td>
+                                        <td class="data">{{ log.brewMashStep5Temp }}&deg; {{ app.preferences.measTemp }}</td>
                                         <td class="data">{{ log.brewMashStep5Time }}&nbsp;min.</td>
                                     </tr>
                                 {% endif %}

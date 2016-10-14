@@ -4,10 +4,10 @@
 <div class="data-container">
     <table class="dataTable">
         <tr>
-            <td valign="top" class="dataLabelLeft">{% if pref.mode == 2 %}Club {% endif %}Name:</td>
+            <td valign="top" class="dataLabelLeft">{% if app.preferences.mode == 2 %}Club {% endif %}Name:</td>
             <td valign="top" class="data">{{ name.brewerPrefix }} {{ name.brewerFirstName }} {{ name.brewerMiddleName }} {{ name.brewerLastName }} {{ name.brewerSuffix }}</td>
         </tr>
-        {% if pref.mode == 1 and (name.brewerAge is not empty) %}
+        {% if app.preferences.mode == 1 and (name.brewerAge is not empty) %}
         <tr>
             <td valign="top" class="dataLabelLeft">Age:</td>
             <td valign="top" class="data">{{ name.brewerAge }}</td>
@@ -19,7 +19,7 @@
             <td valign="top" class="data">{{ name.brewerCity }}{% if (name.brewerCity is not empty) and (name.brewerState is not empty) %}, {% endif %}{{ name.brewerState }} {{ name.brewerCountry }}</td>
         </tr>
         {% endif %}
-        {% if pref.mode == 1 %}
+        {% if app.preferences.mode == 1 %}
             {% if name.brewerClubs is not empty %}
             <tr>
                 <td valign="top" class="dataLabelLeft">Clubs:</td>

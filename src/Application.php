@@ -18,6 +18,7 @@ use BrewBlogger\User\UserControllerProvider;
 use BrewBlogger\User\UserProvider;
 use BrewBlogger\User\UserServiceProvider;
 use BrewBlogger\User\UserRepository;
+use BrewBlogger\Preferences\PreferenceRepository;
 use Silex\Application as SilexApplication;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
@@ -89,6 +90,10 @@ class Application extends SilexApplication {
     $app['user.repository'] = $app->share(function($app) {
       return new UserRepository($app['db']);
     });
+    $app['preference.repository'] = $app->share(function($app) {
+      return new PreferenceRepository($app['db']);
+    });
+    $app['preferences'] = $app['preference.repository']->findPreferences();
 
   }
   protected function registerProviders(Application $app) {

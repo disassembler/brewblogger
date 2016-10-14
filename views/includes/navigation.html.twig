@@ -1,106 +1,106 @@
 <ul id="navlist">
-    {% if page != pref.home %}
-        <li><a href="index.php">{{ pref.menuHome }}</a></li>
-    {% elseif page == pref.home %}
-        <li><strong><span class="ultra_lt">{{ pref.menuHome }}</span></strong></li>
+    {% if page != app.preferences.home %}
+        <li><a href="index.php">{{ app.preferences.menuHome }}</a></li>
+    {% elseif page == app.preferences.home %}
+        <li><strong><span class="ultra_lt">{{ app.preferences.menuHome }}</span></strong></li>
     {% endif %}
-    {% if pref.mode == "1" %}
-        {% if (pref.home != 'brewBlogList') and (page != "brewBlogList") %}
-            <li><a href="index.php?page=brewBlogList">{{ pref.menuBrewBlogs }}</a></li>
-        {% elseif (pref.home != "brewBlogList") and (page == "brewBlogList") %}
-            <li><strong><span class="ultra_lt"> {{ pref.menuBrewBlogs }}</span></strong></li>
+    {% if app.preferences.mode == "1" %}
+        {% if (app.preferences.home != 'brewBlogList') and (page != "brewBlogList") %}
+            <li><a href="index.php?page=brewBlogList">{{ app.preferences.menuBrewBlogs }}</a></li>
+        {% elseif (app.preferences.home != "brewBlogList") and (page == "brewBlogList") %}
+            <li><strong><span class="ultra_lt"> {{ app.preferences.menuBrewBlogs }}</span></strong></li>
         {% endif %}
     {% endif %}
-    {% if pref.mode == "2" %}
-        {% if (pref.home != "members") and (page != "members") %}
-            <li><a href="index.php?page=members&sort=realLastName&dir=ASC">{{ pref.menuMembers }}</a></li>
-        {% elseif (pref.home != "members") and (page == "members") %}
-            <li><strong><span class="ultra_lt">{{ pref.menuMembers }}</span></strong></li>
+    {% if app.preferences.mode == "2" %}
+        {% if (app.preferences.home != "members") and (page != "members") %}
+            <li><a href="index.php?page=members&sort=realLastName&dir=ASC">{{ app.preferences.menuMembers }}</a></li>
+        {% elseif (app.preferences.home != "members") and (page == "members") %}
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuMembers }}</span></strong></li>
         {% endif %}
-        {% if (pref.home != "brewBlogList") and (page != "brewBlogList") %}
-            <li><a href="index.php?page=brewBlogList&sort=brewDate&dir=DESC">{{ pref.menuBrewBlogs }}</a></li>
-        {% elseif (pref.home != "brewBlogList") and (page == "brewBlogList") %}
-            <li><strong><span class="ultra_lt">{{ pref.menuBrewBlogs }}</span></strong></li>
-        {% endif %}
-    {% endif %}
-    {% if pref.mode == "2" %}
-        {% if (pref.home != "recipeList") and (page != "recipeList") %}
-            <li><a href="index.php?page=recipeList">{{ pref.menuRecipes }}</a></li>
-        {% elseif (pref.home != "recipeList") and (page == "recipeList") %}
-            <li><strong><span class="ultra_lt">{{ pref.menuRecipes }}</span></strong></li>
+        {% if (app.preferences.home != "brewBlogList") and (page != "brewBlogList") %}
+            <li><a href="index.php?page=brewBlogList&sort=brewDate&dir=DESC">{{ app.preferences.menuBrewBlogs }}</a></li>
+        {% elseif (app.preferences.home != "brewBlogList") and (page == "brewBlogList") %}
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuBrewBlogs }}</span></strong></li>
         {% endif %}
     {% endif %}
-    {% if (pref.mode == "1") %}
-        {% if (pref.home != "recipeList") and (page != "recipeList") %}
-            <li><a href="index.php?page=recipeList">{{ pref.menuRecipes }}</a></li>
-        {% elseif (pref.home != "recipeList") and (page == "recipeList") %}
-            <li><strong><span class="ultra_lt">{{ pref.menuRecipes }}</span></strong></li>
+    {% if app.preferences.mode == "2" %}
+        {% if (app.preferences.home != "recipeList") and (page != "recipeList") %}
+            <li><a href="index.php?page=recipeList">{{ app.preferences.menuRecipes }}</a></li>
+        {% elseif (app.preferences.home != "recipeList") and (page == "recipeList") %}
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuRecipes }}</span></strong></li>
         {% endif %}
     {% endif %}
-    {% if (pref.mode == "2") and (totalRows_awardGen > 0) %}
-        {% if (pref.home != "awardsList") and (page != "awardsList") %}
-            <li><a href="index.php?page=awardsList&sort=awardDate&dir=DESC">{{ pref.menuAwards }}</a></li>
-        {% elseif (pref.home != "awardsList") and (page == "awardsList") %}
-            <li><strong><span class="ultra_lt">{{ pref.menuAwards }}</span></strong></li>
+    {% if (app.preferences.mode == "1") %}
+        {% if (app.preferences.home != "recipeList") and (page != "recipeList") %}
+            <li><a href="index.php?page=recipeList">{{ app.preferences.menuRecipes }}</a></li>
+        {% elseif (app.preferences.home != "recipeList") and (page == "recipeList") %}
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuRecipes }}</span></strong></li>
         {% endif %}
     {% endif %}
-    {% if (pref.mode == "1") and (totalRows_awardGen > 0) %}
-        {% if (pref.home != "awardsList") and (page != "awardsList") %}
-            <li><a href="index.php?page=awardsList&sort=awardDate&dir=DESC">{{ pref.menuAwards }}</a></li>
-        {% elseif (pref.home != "awardsList") and (page == "awardsList") %}
-            <li><strong><span class="ultra_lt">{{ pref.menuAwards }}</span></strong></li>
+    {% if (app.preferences.mode == "2") and (totalRows_awardGen > 0) %}
+        {% if (app.preferences.home != "awardsList") and (page != "awardsList") %}
+            <li><a href="index.php?page=awardsList&sort=awardDate&dir=DESC">{{ app.preferences.menuAwards }}</a></li>
+        {% elseif (app.preferences.home != "awardsList") and (page == "awardsList") %}
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuAwards }}</span></strong></li>
         {% endif %}
     {% endif %}
-    {% if ((pref.mode == "1") and (pref.home != "about") and (page != "about")) %}
-        <li><a href="index.php?page=about">{{ pref.menuAbout }}</a></li>
-    {% elseif (pref.mode == "1") and (pref.home != "about") and (page == "about") %}
-        <li><strong><span class="ultra_lt">{{ pref.menuAbout }}</span></strong></li>
+    {% if (app.preferences.mode == "1") and (totalRows_awardGen > 0) %}
+        {% if (app.preferences.home != "awardsList") and (page != "awardsList") %}
+            <li><a href="index.php?page=awardsList&sort=awardDate&dir=DESC">{{ app.preferences.menuAwards }}</a></li>
+        {% elseif (app.preferences.home != "awardsList") and (page == "awardsList") %}
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuAwards }}</span></strong></li>
+        {% endif %}
+    {% endif %}
+    {% if ((app.preferences.mode == "1") and (app.preferences.home != "about") and (page != "about")) %}
+        <li><a href="index.php?page=about">{{ app.preferences.menuAbout }}</a></li>
+    {% elseif (app.preferences.mode == "1") and (app.preferences.home != "about") and (page == "about") %}
+        <li><strong><span class="ultra_lt">{{ app.preferences.menuAbout }}</span></strong></li>
     {% endif %}
 
-    {% if (pref.home != "reference") and (page != "reference") %}
+    {% if (app.preferences.home != "reference") and (page != "reference") %}
         <li>
             <div class="menuBar"><a class="menuButton" href="index.php?page=reference"
-                                    onmouseover="buttonMouseover(event, 'publicMenu0');">{{ pref.menuReference }}</a>
+                                    onmouseover="buttonMouseover(event, 'publicMenu0');">{{ app.preferences.menuReference }}</a>
             </div>
         </li>
     {% endif %}
-    {% if (pref.home != "reference") and (page == "reference") %}
-        <li><strong><span class="ultra_lt">{{ pref.menuReference }}</span></strong></li>
+    {% if (app.preferences.home != "reference") and (page == "reference") %}
+        <li><strong><span class="ultra_lt">{{ app.preferences.menuReference }}</span></strong></li>
     {% endif %}
 
-    {% if (pref.home != "tools") and (page != "tools") %}
+    {% if (app.preferences.home != "tools") and (page != "tools") %}
         <li>
             <div class="menuBar"><a class="menuButton" href="index.php?page=tools"
-                                    onmouseover="buttonMouseover(event, 'publicMenu1');">{{ pref.menuCalculators }}</a>
+                                    onmouseover="buttonMouseover(event, 'publicMenu1');">{{ app.preferences.menuCalculators }}</a>
             </div>
         </li>
     {% endif %}
-    {% if (pref.home != "tools") and (page == "tools") %}
-        <li><strong><span class="ultra_lt">{{ pref.menuCalculators }}</span></strong></li>
+    {% if (app.preferences.home != "tools") and (page == "tools") %}
+        <li><strong><span class="ultra_lt">{{ app.preferences.menuCalculators }}</span></strong></li>
     {% endif %}
 
-    {% if pref.allowCalendar == "Y" %}
-        {% if (pref.home != "calendar") and (page != "calendar") %}
-            <li><a href="index.php?page=calendar">{{ pref.menuCalendar }}</a></li>
+    {% if app.preferences.allowCalendar == "Y" %}
+        {% if (app.preferences.home != "calendar") and (page != "calendar") %}
+            <li><a href="index.php?page=calendar">{{ app.preferences.menuCalendar }}</a></li>
         {% endif %}
-        {% if (pref.home != "calendar") and (page == "calendar") %}
-            <li><strong><span class="ultra_lt">{{ pref.menuCalendar }}</span></strong></li>
+        {% if (app.preferences.home != "calendar") and (page == "calendar") %}
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuCalendar }}</span></strong></li>
         {% endif %}
     {% endif %}
 
-    {% if (pref.home != 'about') and (pref.mode == "2") %}
+    {% if (app.preferences.home != 'about') and (app.preferences.mode == "2") %}
         {% if page != "about" %}
-            <li><a href="index.php?page=about">{{ pref.menuAbout }}</a></li>
+            <li><a href="index.php?page=about">{{ app.preferences.menuAbout }}</a></li>
         {% endif %}
         {% if page == "about" %}
-            <li><strong><span class="ultra_lt">{{ pref.menuAbout }}</span></strong></li>
+            <li><strong><span class="ultra_lt">{{ app.preferences.menuAbout }}</span></strong></li>
         {% endif %}
     {% endif %}
     {% if logged_in %}
         <li><div class="menuBar"><a class="menuButton" href="admin/index.php" onmouseover="buttonMouseover(event, 'publicMenu2')">Admin</a></div></li>
-        <li><a href="/user/logout">{{ pref.menuLogout }}</a></li>
+        <li><a href="/user/logout">{{ app.preferences.menuLogout }}</a></li>
     {% else %}
-        <li><a href="/user/login">{{ pref.menuLogin }}</a></li>
+        <li><a href="/user/login">{{ app.preferences.menuLogin }}</a></li>
     {% endif %}
 
 </ul>
@@ -144,19 +144,19 @@
                         class="menuItemArrow">&#9654;</span></a>
         </div>
         <div id="publicMenu2.1" class="menu">
-            <a class="menuItem" href="admin/index.php?action=list&dbTable=brewing">{{ pref.menuBrewBlogs }}</a>
-            <a class="menuItem" href="admin/index.php?action=list&dbTable=recipes">{{ pref.menuRecipes }}</a>
-            <a class="menuItem" href="admin/index.php?action=list&dbTable=awards">{{ pref.menuAwards }}</a>
-            {% if pref.mode == "2" %}
+            <a class="menuItem" href="admin/index.php?action=list&dbTable=brewing">{{ app.preferences.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=list&dbTable=recipes">{{ app.preferences.menuRecipes }}</a>
+            <a class="menuItem" href="admin/index.php?action=list&dbTable=awards">{{ app.preferences.menuAwards }}</a>
+            {% if app.preferences.mode == "2" %}
                 <a class="menuItem" href="admin/index.php?action=list&dbTable=upcoming">All
-                    Upcoming {{ pref.menuBrewBlogs }}</a>
+                    Upcoming {{ app.preferences.menuBrewBlogs }}</a>
             {% else %}
                 <a class="menuItem"
-                   href="admin/index.php?action=list&dbTable=upcoming">Upcoming {{ pref.menuBrewBlogs }}</a>
+                   href="admin/index.php?action=list&dbTable=upcoming">Upcoming {{ app.preferences.menuBrewBlogs }}</a>
             {% endif %}
-            {% if pref.mode == "2" %}
+            {% if app.preferences.mode == "2" %}
                 <a class="menuItem" href="admin/index.php?action=list&dbTable=upcoming&filter={{ user.user_name }}">My
-                    Upcoming {{ pref.menuBrewBlogs }}</a>
+                    Upcoming {{ app.preferences.menuBrewBlogs }}</a>
             {% endif %}
             <a class="menuItem" href="" onclick="return false;"
                onmouseover="menuItemMouseover(event, 'publicMenu2.1.1');"><span
@@ -188,13 +188,13 @@
             <a class="menuItem" href="admin/index.php?action=list&dbTable=users">Users</a>
         </div>
         <div id="publicMenu2.2" class="menu">
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=brewing">{{ pref.menuBrewBlogs }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=recipes">{{ pref.menuRecipes }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=brewing">{{ pref.menuAwards }}
-                : {{ pref.menuBrewBlogs }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=recipes">{{ pref.menuAwards }}
-                : {{ pref.menuRecipes }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=upcoming">Upcoming {{ pref.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=brewing">{{ app.preferences.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=recipes">{{ app.preferences.menuRecipes }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=brewing">{{ app.preferences.menuAwards }}
+                : {{ app.preferences.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=recipes">{{ app.preferences.menuAwards }}
+                : {{ app.preferences.menuRecipes }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=upcoming">Upcoming {{ app.preferences.menuBrewBlogs }}</a>
             <a class="menuItem" href="" onclick="return false;"
                onmouseover="menuItemMouseover(event, 'publicMenu2.2.1');"><span
                         class="menuItemText">Reference</span><span class="menuItemArrow">&#9654;</span></a>
@@ -226,9 +226,9 @@
         </div>
         <div id="publicMenu2.3" class="menu">
             <a class="menuItem"
-               href="admin/index.php?action=edit&dbTable=users&filter={{ user.user_name }}&id={{ user.id }}">{% if pref.mode == "2" %}My {% endif %}
+               href="admin/index.php?action=edit&dbTable=users&filter={{ user.user_name }}&id={{ user.id }}">{% if app.preferences.mode == "2" %}My {% endif %}
                 Personal Defaults and Info</a>
-            <a class="menuItem" href="admin/index.php?action=edit&dbTable=preferences&id=1">Preferences</a>
+            <a class="menuItem" href="admin/index.php?action=edit&dbTable=app.preferences.rences&id=1">Preferences</a>
             <a class="menuItem" href="admin/index.php?action=edit&dbTable=brewer&id=1">Profile</a>
         </div>
         <div id="publicMenu2.4" class="menu">
@@ -262,11 +262,11 @@
                         class="menuItemArrow">&#9654;</span></a>
         </div>
         <div id="publicMenu2.1" class="menu">
-            <a class="menuItem" href="admin/index.php?action=list&dbTable=brewing">{{ pref.menuBrewBlogs }}</a>
-            <a class="menuItem" href="admin/index.php?action=list&dbTable=recipes">{{ pref.menuRecipes }}</a>
-            <a class="menuItem" href="admin/index.php?action=list&dbTable=awards">{{ pref.menuAwards }}</a>
-            {% if pref.mode == "2" %}<a class="menuItem"
-                                        href="admin/index.php?action=list&dbTable=upcoming&filter={{ user.user_name }}">My Upcoming {{ pref.menuBrewBlogs }}</a>{% endif %}
+            <a class="menuItem" href="admin/index.php?action=list&dbTable=brewing">{{ app.preferences.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=list&dbTable=recipes">{{ app.preferences.menuRecipes }}</a>
+            <a class="menuItem" href="admin/index.php?action=list&dbTable=awards">{{ app.preferences.menuAwards }}</a>
+            {% if app.preferences.mode == "2" %}<a class="menuItem"
+                                        href="admin/index.php?action=list&dbTable=upcoming&filter={{ user.user_name }}">My Upcoming {{ app.preferences.menuBrewBlogs }}</a>{% endif %}
         </div>
         <div id="publicMenu2.6" class="menu">
             <a class="menuItem" href="" onclick="return false;"
@@ -297,13 +297,13 @@
             <a class="menuItem" href="admin/index.php?action=list&dbTable=users">Users</a>
         </div>
         <div id="publicMenu2.2" class="menu">
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=brewing">{{ pref.menuBrewBlogs }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=recipes">{{ pref.menuRecipes }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=brewing">{{ pref.menuAwards }}
-                : {{ pref.menuBrewBlogs }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=recipes">{{ pref.menuAwards }}
-                : {{ pref.menuRecipes }}</a>
-            <a class="menuItem" href="admin/index.php?action=add&dbTable=upcoming">Upcoming {{ pref.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=brewing">{{ app.preferences.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=recipes">{{ app.preferences.menuRecipes }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=brewing">{{ app.preferences.menuAwards }}
+                : {{ app.preferences.menuBrewBlogs }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=awards&assoc=recipes">{{ app.preferences.menuAwards }}
+                : {{ app.preferences.menuRecipes }}</a>
+            <a class="menuItem" href="admin/index.php?action=add&dbTable=upcoming">Upcoming {{ app.preferences.menuBrewBlogs }}</a>
             <a class="menuItem" href="" onclick="return false;"
                onmouseover="menuItemMouseover(event, 'publicMenu2.2.1');"><span
                         class="menuItemText">Reference</span><span class="menuItemArrow">&#9654;</span></a>
@@ -336,7 +336,7 @@
                href="admin/index.php?action=edit&dbTable=users&filter={{ user.user_name }}&section=password&id={{ user.id }}">Change
                 My Password</a>
             <a class="menuItem" href="admin/index.php?action=edit&dbTable=users&filter="{{ user.user_name }}
-            &id={{ user.id }}">{% if pref.mode == "2" %}My {% endif %}Personal Defaults and Info</a>
+            &id={{ user.id }}">{% if app.preferences.mode == "2" %}My {% endif %}Personal Defaults and Info</a>
             <a class="menuItem"
                href="admin/index.php?action=edit&dbTable=users&filter={{ user.user_name }}&id={{ user.id }}">My
                 Profile</a>

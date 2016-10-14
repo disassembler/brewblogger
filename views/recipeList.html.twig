@@ -19,7 +19,7 @@
     {% else %}
 </div>
     {% if featured is not empty %}
-        {% if (pref.mode == "1") or ((pref.mode == "2") and (filter == "all")) %}
+        {% if (app.preferences.mode == "1") or ((app.preferences.mode == "2") and (filter == "all")) %}
             {{ featured }}
             <div class="headerContentAdmin">All {{ db_name }}</div>
         {% endif %}
@@ -31,13 +31,13 @@
                     <div id="breadcrumb">Filter: {{ recipe.brewStyle }} | <a
                                 href="?page={{ page|url_encode }}&filter={{ filter|url_encode }}&style=all&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&view={{ view|url_encode }}&pg={{ pg|url_encode }}">See
                             all
-                            styles{% if (pref.mode == "2") and (filter != "all") %} of recipes entered by {{ recipe.user.realFirstName }}{% endif %}</a>
+                            styles{% if (app.preferences.mode == "2") and (filter != "all") %} of recipes entered by {{ recipe.user.realFirstName }}{% endif %}</a>
                     </div>
                 </td>
             {% endif %}
             <td>
                 <div id="paginate">
-                    {{ total }} {{ pref.menuRecipes }} Total
+                    {{ total }} {{ app.preferences.menuRecipes }} Total
                     {% if total > display %}&nbsp;&nbsp;&nbsp;&#8226;{% endif %}
                     {% if view == "all" %}&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;{% endif %}
                     {% if total > display %}
@@ -47,13 +47,13 @@
                             &nbsp;&nbsp;&nbsp;&#8226&nbsp;&nbsp;&nbsp;<a
                                 href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=all">
                             Entire List
-                            of {% if (pref.mode == "2") and (filter != "all") %}{{ recipe.user.realFirstName }}'s {% endif %}{{ pref.menuRecipes }}</a>
+                            of {% if (app.preferences.mode == "2") and (filter != "all") %}{{ recipe.user.realFirstName }}'s {% endif %}{{ app.preferences.menuRecipes }}</a>
                         {% endif %}
                     {% endif %}
                     {% if (view == "all") and (total < display) %}<a
                         href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=limited">
                         Limited List
-                        of {% if (pref.mode == "2") and (filter != "all") %}{{ recipe.user.realFirstName }}'s {% endif %}{{ pref.menuRecipes }}</a>
+                        of {% if (app.preferences.mode == "2") and (filter != "all") %}{{ recipe.user.realFirstName }}'s {% endif %}{{ app.preferences.menuRecipes }}</a>
                     {% endif %}
                 </div>
             </td>
@@ -82,7 +82,7 @@
                         href="?page={{ page|url_encode }}&sort=brewMethod&dir=DESC&filter={{ filter|url_encode }}&view={{ view|url_encode }}">
                     <img src="{{ image_src }}sort_down.gif" border="0" alt="Sort Descending"></a>{% endif %}</td>
             <td class="dataHeadingList"
-                width="10%">{% if pref.measColor == "EBC" %}EBC{% else %}SRM{% endif %}{% if not checkmobile %}&nbsp;<a
+                width="10%">{% if app.preferences.measColor == "EBC" %}EBC{% else %}SRM{% endif %}{% if not checkmobile %}&nbsp;<a
                         href="?page={{ page|url_encode }}&sort=brewLovibond&dir=ASC&filter={{ filter|url_encode }}&view={{ view|url_encode }}"><img
                             src="{{ image_src }}sort_up.gif" border="0" alt="Sort Ascending"></a><a
                         href="?page={{ page|url_encode }}&sort=brewLovibond&dir=DESC&filter={{ filter|url_encode }}&view={{ view|url_encode }}">
@@ -97,7 +97,7 @@
                         src="{{ image_src }}sort_up.gif" border="0" alt="Sort Ascending"></a><a
                         href="?page={{ page|url_encode }}&sort=brewOG&dir=DESC&filter={{ filter|url_encode }}&view={{ view|url_encode }}">
                     <img src="{{ image_src }}sort_down.gif" border="0" alt="Sort Descending"></a>{% endif %}</td>
-            {% if (pref.mode == "2") and (filter != "all") %}
+            {% if (app.preferences.mode == "2") and (filter != "all") %}
                 <td class="dataHeadingList">Contributor{% if not checkmobile %}&nbsp;<a
                         href="?page={{ page|url_encode }}&sort=brewBrewerID&dir=ASC&filter={{ filter|url_encode }}&view={{ view|url_encode }}"><img
                             src="{{ image_src }}sort_up.gif" border="0" alt="Sort Ascending"></a><a
@@ -149,7 +149,7 @@
                     {% endif %}
                     <td class="dataList">{{ recipe.brewBitterness|number_format(1) }}</td>
                     <td class="dataList">{{ recipe.calcABV|number_format(1) }}</td>
-                    {% if (pref.mode == "2") and (filter != "all") %}
+                    {% if (app.preferences.mode == "2") and (filter != "all") %}
                         <td class="dataList"><a
                                     href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ recipe.user.user_name|url_encode }}&view=limited">{{ recipe.user.realFirstName }} {{ recipe.user.realLastName }}</a>
                         </td>
@@ -163,7 +163,7 @@
         <tr>
             <td>
                 <div id="paginate">
-                    {{ total }} {{ pref.menuRecipes }} Total
+                    {{ total }} {{ app.preferences.menuRecipes }} Total
                     {% if total > display %}&nbsp;&nbsp;&nbsp;&#8226;{% endif %}
                     {% if view == "all" %}&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;{% endif %}
                     {% if total > display %}
@@ -173,13 +173,13 @@
                             &nbsp;&nbsp;&nbsp;&#8226&nbsp;&nbsp;&nbsp;<a
                                 href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=all">
                             Entire List
-                            of {% if (pref.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s {% endif %}{{ pref.menuRecipes }}</a>
+                            of {% if (app.preferences.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s {% endif %}{{ app.preferences.menuRecipes }}</a>
                         {% endif %}
                     {% endif %}
                     {% if (view == "all") and (total < display) %}<a
                         href="?page={{ page|url_encode }}&sort={{ sort|url_encode }}&dir={{ dir|url_encode }}&filter={{ filter|url_encode }}&style={{ style|url_encode }}&view=limited">
                         Limited List
-                        of {% if (pref.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s {% endif %}{{ pref.menuRecipes }}</a>
+                        of {% if (app.preferences.mode == "2") and (filter != "all") %}{{ user2.realFirstName }}'s {% endif %}{{ app.preferences.menuRecipes }}</a>
                     {% endif %}
                 </div>
             </td>
