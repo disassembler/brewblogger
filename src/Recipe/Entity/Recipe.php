@@ -6287,4 +6287,13 @@ class Recipe implements JsonSerializable
 
       ];
     }
+    public function getColorDisplay() {
+      return 'coming soon';
+    }
+    public function calcAbv() {
+      return 'coming soon';
+    }
+    public function awardCount() {
+      return 'coming soon';
+    }
 }

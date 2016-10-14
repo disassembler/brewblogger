@@ -17,7 +17,11 @@ class RecipeControllerProvider implements ControllerProviderInterface {
     /** @var \Silex\ControllerCollection $controllers */
     $controllers = $app['controllers_factory'];
     $controllers->get('/list', 'recipe.controller:listRecipes')
-      ->bind('brewrecipes.list');
+      ->bind('recipes.list');
+    $controllers->get('/list/style/{style}', 'recipe.controller:listRecipesByStyle')
+      ->bind('recipes.list_style');
+    $controllers->get('/list/json', 'recipe.controller:listRecipesJson')
+      ->bind('recipes.list.json');
     return $controllers;
   }
 

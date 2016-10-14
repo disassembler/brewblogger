@@ -19,6 +19,10 @@ class PreferenceRepository {
   }
   public function findPreferences() {
     $preferences = $this->db->fetchAssoc('SELECT * FROM preferences');
+    $theme = $this->db->fetchAssoc('SELECT * FROM brewingcss WHERE theme = ?', array($preferences['theme']));
+    $preferences['theme_name'] = $theme['themeName'];
+    $preferences['theme_color1'] = $theme['themeColor1'];
+    $preferences['theme_color2'] = $theme['themeColor2'];
     return $preferences;
 
   }

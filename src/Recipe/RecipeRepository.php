@@ -32,5 +32,23 @@ class RecipeRepository {
     }
     return $recipes;
   }
+  public function findStyle($style) {
+    $recipes = [];
+    $result = $this->db->fetchAll('SELECT * FROM recipes WHERE brewStyle = ?', array($style));
+    foreach ($result as $row) {
+      $recipe = new Recipe($row);
+      $recipes[] = $recipe;
+    }
+    return $recipes;
+  }
+  public function findFeatured() {
+    $recipes = [];
+    $result = $this->db->fetchAll('SELECT * FROM recipes WHERE brewFeatured = ?', array('Y'));
+    foreach ($result as $row) {
+      $recipe = new Recipe($row);
+      $recipes[] = $recipe;
+    }
+    return $recipes;
+  }
 
 }

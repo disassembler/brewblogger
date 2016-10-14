@@ -37,7 +37,7 @@
             <li><strong><span class="ultra_lt">{{ app.preferences.menuRecipes }}</span></strong></li>
         {% endif %}
     {% endif %}
-    {% if (app.preferences.mode == "2") and (totalRows_awardGen > 0) %}
+    {#{% if (app.preferences.mode == "2") and (totalRows_awardGen > 0) %}
         {% if (app.preferences.home != "awardsList") and (page != "awardsList") %}
             <li><a href="index.php?page=awardsList&sort=awardDate&dir=DESC">{{ app.preferences.menuAwards }}</a></li>
         {% elseif (app.preferences.home != "awardsList") and (page == "awardsList") %}
@@ -50,7 +50,7 @@
         {% elseif (app.preferences.home != "awardsList") and (page == "awardsList") %}
             <li><strong><span class="ultra_lt">{{ app.preferences.menuAwards }}</span></strong></li>
         {% endif %}
-    {% endif %}
+    {% endif %}#}
     {% if ((app.preferences.mode == "1") and (app.preferences.home != "about") and (page != "about")) %}
         <li><a href="index.php?page=about">{{ app.preferences.menuAbout }}</a></li>
     {% elseif (app.preferences.mode == "1") and (app.preferences.home != "about") and (page == "about") %}

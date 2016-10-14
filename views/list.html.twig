@@ -2,21 +2,21 @@
     {% if logged_in and (user.userLevel == "1") %}
         <span class="data-icon"><img src="{{ image_src }}/pencil.png" alt="Edit" border="0" align="absmiddle"></span>
         <span class="data"><a href="admin/index.php?action=edit&dbTable=brewer&id=1"><span
-                        class="text_10">Edit {{ name.brewerFirstName }}'s Profile</span></span></a>
+                        class="text_10">Edit {{ app.site_info.brewerFirstName }}'s Profile</span></span></a>
     {% endif %}
-    {% if name.brewerImage is not empty %}
+    {% if app.site_info.brewerImage is not empty %}
         <div id="sidebarWrapper">
             <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}picture.png"
                                                              align="absmiddle"></span><span
                                                              class="data">
-                    {%- if app.preferences.mode == "1" %}{{ name.brewerFirstName }}'s Photo{% elseif app.preferences.mode == "2" %}Club Logo{% endif %}</span>
+                    {%- if app.preferences.mode == "1" %}{{ app.site_info.brewerFirstName }}'s Photo{% elseif app.preferences.mode == "2" %}Club Logo{% endif %}</span>
             </div>
             <div id="sidebarInnerWrapper">
                 <div align="center">
-                    <img class="labelImage" src="label_images/{{ name.brewerImage }}" width="{{ img_w }} />
+                    <img class="labelImage" src="label_images/{{ app.site_info.brewerImage }}" width="{{ img_w }} />
                         {% if (img_h >= 150) and (img_w >= 200) %}
                         <div id="labelImageEnlarge">
-                            <a href="label_images/{{ name.brewerImage }}" title="" class="thickbox">View Full Size</a>
+                            <a href="label_images/{{ app.site_info.brewerImage }}" title="" class="thickbox">View Full Size</a>
                         </div>
                         {% endif %}
 
@@ -28,8 +28,8 @@
         <div id="sidebarWrapper">
             <div id="sidebarHeader"><span class="data-icon"><img src="{{ image_src }}link.png" align="absmiddle"></span><span
                         class="data">
-                    {% if (app.preferences.mode == "1") and (name.brewerFirstName is not empty) %}
-                        {{ name.brewerFirstName }}'s
+                    {% if (app.preferences.mode == "1") and (app.site_info.brewerFirstName is not empty) %}
+                        {{ app.site_info.brewerFirstName }}'s
                     {% elseif app.preferences.mode == "2" %}
                         Club
                     {% endif %}
