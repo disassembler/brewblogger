@@ -12,6 +12,8 @@
 namespace BrewBlogger;
 use BrewBlogger\Recipe\RecipeControllerProvider;
 use BrewBlogger\Recipe\RecipeServiceProvider;
+use BrewBlogger\News\NewsControllerProvider;
+use BrewBlogger\News\NewsServiceProvider;
 use BrewBlogger\Legacy\LegacyControllerProvider;
 use BrewBlogger\Legacy\LegacyServiceProvider;
 use BrewBlogger\User\UserControllerProvider;
@@ -84,6 +86,7 @@ class Application extends SilexApplication {
   }
   protected function registerServices(Application $app) {
     $app->register(new RecipeServiceProvider());
+    $app->register(new NewsServiceProvider());
     $app->register(new LegacyServiceProvider());
     $app->register(new UserServiceProvider());
     $app['user.repository'] = $app->share(function($app) {
@@ -137,6 +140,7 @@ class Application extends SilexApplication {
   }
   protected function registerRoutes(Application $app) {
     $app->mount('/', new RecipeControllerProvider());
+    $app->mount('/', new NewsControllerProvider());
     $app->mount('/', new LegacyControllerProvider());
     $app->mount('/user', new UserControllerProvider());
   }

@@ -54,7 +54,6 @@ $twig->addGlobal('image_src', "images/");
 $twig->addGlobal('log', isset($row_log) ? $row_log : null);
 $twig->addGlobal('logged_in', isset($_SESSION["loginUsername"]));
 $twig->addGlobal('name', isset($row_name) ? $row_name : null);
-$twig->addGlobal('news', include SECTIONS . 'news.inc.php');
 $twig->addGlobal('page', $page);
 $twig->addGlobal('page_title', $page_title);
 $twig->addGlobal('page_title_extension', $page_title_extension);
