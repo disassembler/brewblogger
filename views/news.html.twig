@@ -45,18 +45,18 @@
     </tr>
 </table>
 {% for post in news %}
-    {% if post.newsPrivate == "Y" %}
-        <div class="headerContentAdmin">{{ post.newsHeadline }}</div>
+    {% if post.private == "Y" %}
+        <div class="headerContentAdmin">{{ post.headline }}</div>
         <table class="dataTable" style="margin-bottom: 15px;">
             <tr>
                 <td>&nbsp;</td>
                 <td class="text_9 right bknd_ultra_lt" width="10%" nowrap="nowrap">
-                    &nbsp;Posted {{ post.newsDate|date("F j, Y") }}
-                    by {{ post.newsPoster }}&nbsp;</td>
+                    &nbsp;Posted {{ post.publishDate|date("F j, Y") }}
+                    by {{ post.poster }}&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="2"
-                    style="padding-top: 5px;">{% if page == "news" %}{{ post.newsText }}{% else %}{{ post.truncated_text }}{% endif %}</td>
+                    style="padding-top: 5px;">{% if page == "news" %}{{ post.details }}{% else %}{{ post.details }}{% endif %}</td>
             </tr>
             {% if page != "news" %}
                 <?php if ($page != "news") { ?>

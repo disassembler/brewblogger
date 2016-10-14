@@ -6,33 +6,33 @@
     <tr>
         <td class="dataLabelLeft">Batch Size:</td>
         <td class="data" width="15%"
-            nowrap="nowrap">{% if equip_profile.equipBatchSize_converted is not empty %}{{ equip_profile.equipBatchSize_converted }} {{ pref.measFluid2 }}{% endif %}</td>
+            nowrap="nowrap">{% if equip_profile.equipBatchSize_converted is not empty %}{{ equip_profile.equipBatchSize_converted }} {{ app.preferences.measFluid2 }}{% endif %}</td>
         <td class="dataLabel">Boil Volume:</td>
         <td class="data"
-            nowrap="nowrap">{% if equip_profile.equipBoilVolume_converted is not empty %}{{ equip_profile.equipBoilVolume_converted }} {{ pref.measFluid2 }}{% endif %}</td>
+            nowrap="nowrap">{% if equip_profile.equipBoilVolume_converted is not empty %}{{ equip_profile.equipBoilVolume_converted }} {{ app.preferences.measFluid2 }}{% endif %}</td>
     </tr>
     <tr>
         <td class="dataLabelLeft">Evaporation Rate:</td>
         <td class="data" width="15%"
             nowrap="nowrap">{% if equip_profile.equipEvapRate is not empty %}{{ equip_profile.equipEvapRate }} per hour{% endif %}</td>
         <td class="dataLabel">Mash Tun Dead Space:</td>
-        <td class="data">{% if equip_profile.equipMashTunDeadspace_converted is not empty %}{{ equip_profile.equipMashTunDeadspace_converted }} {{ pref.measFluid2 }}{% endif %}</td>
+        <td class="data">{% if equip_profile.equipMashTunDeadspace_converted is not empty %}{{ equip_profile.equipMashTunDeadspace_converted }} {{ app.preferences.measFluid2 }}{% endif %}</td>
     </tr>
     <tr>
         <td class="dataLabelLeft">Efficiency:</td>
         <td class="data">{% if equip_profile.equipTypicalEfficiency is not empty %}{{ equip_profile.equipTypicalEfficiency }}%{% endif %}</td>
         <td class="dataLabel">Mash Tun Weight:</td>
-        <td class="data">{% if equip_profile.equipMashTunWeight_converted is not empty %}{{ equip_profile.equipMashTunWeight_converted }} {{ pref.measWeight2 }}{% endif %}</td>
+        <td class="data">{% if equip_profile.equipMashTunWeight_converted is not empty %}{{ equip_profile.equipMashTunWeight_converted }} {{ app.preferences.measWeight2 }}{% endif %}</td>
     </tr>
     <tr>
         <td class="dataLabelLeft">Hop Utilization:</td>
         <td class="data">{% if equip_profile.equipHopUtil is not empty %}{{ equip_profile.equipHopUtil }}%{% endif %}</td>
         <td class="dataLabel">Mash Tun Volume:</td>
-        <td class="data">{% if equip_profile.equipMashTunVolume_converted is not empty %}{{ equip_profile.equipMashTunVolume_converted }} {{ pref.measFluid2 }}{% endif %}</td>
+        <td class="data">{% if equip_profile.equipMashTunVolume_converted is not empty %}{{ equip_profile.equipMashTunVolume_converted }} {{ app.preferences.measFluid2 }}{% endif %}</td>
     </tr>
     <tr>
         <td class="dataLabelLeft">Loss:</td>
-        <td class="data">{% if equip_profile.equipLoss_converted is not empty %}{{ equip_profile.equipLoss_converted }} {{ pref.measFluid2 }}{% endif %}</td>
+        <td class="data">{% if equip_profile.equipLoss_converted is not empty %}{{ equip_profile.equipLoss_converted }} {{ app.preferences.measFluid2 }}{% endif %}</td>
         <td class="dataLabel">Mash Tun Specific Heat:</td>
         <td class="data">{% if equip_profile.equipMashTunSpecificHeat is not empty %}{{ equip_profile.equipMashTunSpecificHeat }} Cal/gram per &deg;C{% endif %}</td>
     </tr>

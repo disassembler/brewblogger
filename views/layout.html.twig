@@ -8,9 +8,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>
         {% block title %}
-            {% if pref.mode == "1" %}
+            {% if app.preferences.mode == "1" %}
                 {{ name.brewerFirstName }}'s BrewBlog &gt; {{ page_title }} {{ page_title_extension }}
-            {% elseif pref.mode == "2" %}
+            {% elseif app.preferences.mode == "2" %}
                 {{ name.brewerFirstName }} {{ name.brewerLogName }} &gt; {{ page_title }} {{ page_title_extension }}
             {% endif %}
         {% endblock %}
@@ -25,7 +25,7 @@
         <script type="text/javascript" src="js_includes/thickbox.js"></script>
         <script type="text/javascript" src="js_includes/jump_menu.js"></script>
         <link rel="stylesheet" href="css/thickbox.css" type="text/css" media="screen">
-        <link rel="stylesheet" href="css/{{ pref.theme }}" type="text/css">
+        <link rel="stylesheet" href="css/{{ app.preferences.theme }}" type="text/css">
     {% endif %}
 
     {% block head %}{% endblock %}
@@ -35,7 +35,7 @@
 <div id="main-container">
     <!-- Begin Header -->
     <div id="header">
-        <div class="titleText">{{ name.brewerFirstName }}{% if pref.mode == 1 and name.brewerFirstName %}'s{% endif %}&nbsp;{{ name.brewerLogName }}</div>
+        <div class="titleText">{{ name.brewerFirstName }}{% if app.preferences.mode == 1 and name.brewerFirstName %}'s{% endif %}&nbsp;{{ name.brewerLogName }}</div>
         <div class="quoteText">{{ name.brewerTagline }}</div>
     </div>
     <div id="nav">{% include "includes/navigation.html.twig" %}</div>
@@ -44,7 +44,7 @@
     <div id="content-wrapper">
         <div id="{% block content_id "content-wide" %}">
             <div id="{% block breadcrumb_id "breadcrumbWide" %}">{{ breadcrumb }}</div>
-            {% if pref.mode == 2 and pref.home == page and pref.allowNews == "y" and totalRows_newsGen > 0 %}{{ news }}{% endif %}
+            {% if app.preferences.mode == 2 and app.preferences.home == page and app.preferences.allowNews == "y" and totalRows_newsGen > 0 %}{#{{render(controller('news.controller:index'))}}#}{% endif %}
             <div id="{% block subtitle_id "subtitleWide" %}">
                 <div id="icon"><img src="{{ image_src }}{{ icon }}.png" align="bottom"></div>
                 {% block page_title page_title %}
