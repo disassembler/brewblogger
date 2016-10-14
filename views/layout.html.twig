@@ -44,7 +44,7 @@
     <div id="content-wrapper">
         <div id="{% block content_id "content-wide" %}">
             <div id="{% block breadcrumb_id "breadcrumbWide" %}">{{ breadcrumb }}</div>
-            {% if app.preferences.mode == 2 and app.preferences.home == page and app.preferences.allowNews == "y" and totalRows_newsGen > 0 %}{{ news }}{% endif %}
+            {% if app.preferences.mode == 2 and app.preferences.home == page and app.preferences.allowNews == "y" and totalRows_newsGen > 0 %}{#{{render(controller('news.controller:index'))}}#}{% endif %}
             <div id="{% block subtitle_id "subtitleWide" %}">
                 <div id="icon"><img src="{{ image_src }}{{ icon }}.png" align="bottom"></div>
                 {% block page_title page_title %}

@@ -12,6 +12,8 @@
 namespace BrewBlogger;
 use BrewBlogger\Recipe\RecipeControllerProvider;
 use BrewBlogger\Recipe\RecipeServiceProvider;
+use BrewBlogger\News\NewsControllerProvider;
+use BrewBlogger\News\NewsServiceProvider;
 use BrewBlogger\Legacy\LegacyControllerProvider;
 use BrewBlogger\Legacy\LegacyServiceProvider;
 use BrewBlogger\User\UserControllerProvider;
@@ -26,6 +28,7 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
 use Igorw\Silex\ConfigServiceProvider;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -87,6 +90,7 @@ class Application extends SilexApplication {
   }
   protected function registerServices(Application $app) {
     $app->register(new RecipeServiceProvider());
+    $app->register(new NewsServiceProvider());
     $app->register(new LegacyServiceProvider());
     $app->register(new UserServiceProvider());
     $app['user.repository'] = $app->share(function($app) {
@@ -99,6 +103,8 @@ class Application extends SilexApplication {
 
   }
   protected function registerProviders(Application $app) {
+    // Fragment Service for rendering controllers in templates.
+    $app->register(new HttpFragmentServiceProvider());
     // Load the Generator service. Nothing is there by default, remember?
     $app->register(new UrlGeneratorServiceProvider());
     // Session Provider.
@@ -144,6 +150,7 @@ class Application extends SilexApplication {
   }
   protected function registerRoutes(Application $app) {
     $app->mount('/', new RecipeControllerProvider());
+    $app->mount('/', new NewsControllerProvider());
     $app->mount('/', new LegacyControllerProvider());
     $app->mount('/user', new UserControllerProvider());
   }
