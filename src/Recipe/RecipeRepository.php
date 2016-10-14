@@ -12,6 +12,8 @@
 namespace BrewBlogger\Recipe;
 
 use BrewBlogger\recipe\Entity\Recipe;
+use Doctrine\DBAL\Connection;
+use PDO;
 
 class RecipeRepository {
   private $db;

@@ -15,9 +15,13 @@ use Silex\ServiceProviderInterface;
 use Silex\Application;
 class RecipeServiceProvider implements ServiceProviderInterface {
   public function register(Application $app) {
-    $app['brewrecipes.controller'] = $app->share(function () use ($app) {
+    $app['recipe.controller'] = $app->share(function () use ($app) {
         return new RecipeController($app);
       });
+    $app['recipe.repository'] = $app->share(function () use ($app) {
+      $db = $app['db'];
+      return new RecipeRepository($db);
+    });
   }
   public function boot(Application $app)
   {

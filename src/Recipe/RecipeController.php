@@ -15,6 +15,7 @@ use BrewBlogger\Application;
 use BrewBlogger\Recipe\RecipeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 class RecipeController {
   /**
    * @var Application
@@ -24,6 +25,7 @@ class RecipeController {
     $this->app = $app;
   }
   public function listRecipes(Request $request) {
-    return 'coming soon...';
+    $var = $this->app['recipe.repository']->findAll();
+    return new JsonResponse($this->app['recipe.repository']->findAll());
   }
 }

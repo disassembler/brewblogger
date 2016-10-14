@@ -16,7 +16,7 @@ class RecipeControllerProvider implements ControllerProviderInterface {
   public function connect(Application $app) {
     /** @var \Silex\ControllerCollection $controllers */
     $controllers = $app['controllers_factory'];
-    $controllers->get('/list', 'brewrecipes.controller:listRecipes')
+    $controllers->get('/list', 'recipe.controller:listRecipes')
       ->bind('brewrecipes.list');
     return $controllers;
   }

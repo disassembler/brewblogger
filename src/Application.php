@@ -136,7 +136,7 @@ class Application extends SilexApplication {
     ]);
   }
   protected function registerRoutes(Application $app) {
-    $app->mount('/', new RecipeControllerProvider());
+    $app->mount('/recipe', new RecipeControllerProvider());
     $app->mount('/', new LegacyControllerProvider());
     $app->mount('/user', new UserControllerProvider());
   }
