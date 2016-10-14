@@ -27,6 +27,7 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
 use Igorw\Silex\ConfigServiceProvider;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -95,6 +96,8 @@ class Application extends SilexApplication {
 
   }
   protected function registerProviders(Application $app) {
+    // Fragment Service for rendering controllers in templates.
+    $app->register(new HttpFragmentServiceProvider());
     // Load the Generator service. Nothing is there by default, remember?
     $app->register(new UrlGeneratorServiceProvider());
     // Session Provider.
